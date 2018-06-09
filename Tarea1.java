@@ -42,6 +42,7 @@ public class Tarea1 {
 
             element = aElements.get(index);
             System.out.println(element.getText());
+            System.out.println(element.getAttribute("href"));
             element = textElements.get(index);
             System.out.println(element.getText());
             System.out.println();
