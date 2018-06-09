@@ -19,21 +19,26 @@ public class Tarea1 {
 
         WebDriver myDriver = WebDriverFactory.getDriver(browser);
 
-        //ir a URL de Google y Validar si la URL es correcta
+        //ir a URL de Google
         myDriver.get("https://www.google.com.mx/");
 
         // Buscar la barra de input por nombre
         WebElement searchBar = myDriver.findElement(By.name("q"));
         searchBar.sendKeys("Selenium");
 
+        // Presionar Enter
         searchBar.sendKeys(Keys.RETURN);
 
+        // Crear lista para traer el texto del link de los resultados
         List<WebElement> aElements = myDriver.findElements(By.xpath("//div[@class = 'rc']/h3[@class = 'r']/a"));
+
+        // Crear lista para traer el texto del contenido de los resultados
         List<WebElement> textElements = myDriver.findElements(By.xpath("//span[@class = 'st']"));
 
         WebElement element = null;
 
-        for(int index = 0; index < 3; index++){ //For Normal
+        // Iteracion de las 2 listas para traer el contenido de cada una, resultados hasta 3 paginas
+        for(int index = 0; index < 3; index++){
 
             element = aElements.get(index);
             System.out.println(element.getText());
@@ -42,15 +47,6 @@ public class Tarea1 {
             System.out.println();
 
         }
-
-
-
-
-
-        //aElements.forEach( element -> {
-
-        //    System.out.println(aElements.size());
-        //});
 
         Thread.sleep(5000);
 
